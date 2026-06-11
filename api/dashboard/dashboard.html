@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTSFX Strategy API Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 MTSFX Strategy API Dashboard</h1>
+      <p>24/7 Automated Indicator Management</p>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="overview">Overview</button>
+      <button class="tab-btn" data-tab="strategies">Strategies</button>
+      <button class="tab-btn" data-tab="create">Create Strategy</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
+    </nav>
+
+    <!-- Overview Tab -->
+    <section id="overview" class="tab-content active">
+      <h2>API Status</h2>
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Server Status</h3>
+          <p id="serverStatus" class="status-text">Checking...</p>
+        </div>
+        <div class="status-card">
+          <h3>Active Strategies</h3>
+          <p id="activeCount" class="count">0</p>
+        </div>
+        <div class="status-card">
+          <h3>Total Return</h3>
+          <p id="totalReturn" class="return">0%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategies Tab -->
+    <section id="strategies" class="tab-content">
+      <h2>Strategies</h2>
+      <div class="actions">
+        <button id="refreshBtn" class="btn btn-primary">🔄 Refresh</button>
+        <button id="addStrategyBtn" class="btn btn-success">+ New Strategy</button>
+      </div>
+      <div id="strategiesList" class="strategies-grid"></div>
+    </section>
+
+    <!-- Create Strategy Tab -->
+    <section id="create" class="tab-content">
+      <h2>Create New Strategy</h2>
+      <form id="createStrategyForm" class="form">
+        <div class="form-group">
+          <label for="strategyName">Strategy Name:</label>
+          <input type="text" id="strategyName" required placeholder="Enter strategy name">
+        </div>
+        <div class="form-group">
+          <label for="strategyType">Type:</label>
+          <select id="strategyType" required>
+            <option value="">Select Type</option>
+            <option value="momentum">Momentum</option>
+            <option value="reversal">Reversal</option>
+            <option value="trend">Trend Following</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="riskLevel">Risk Level:</label>
+          <select id="riskLevel" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Create Strategy</button>
+      </form>
+    </section>
+
+    <!-- Settings Tab -->
+    <section id="settings" class="tab-content">
+      <h2>Settings</h2>
+      <div class="settings-group">
+        <label>
+          <input type="checkbox" id="autoRefresh" checked>
+          Auto Refresh (every 30s)
+        </label>
+        <label>
+          <input type="checkbox" id="notifications" checked>
+          Enable Notifications
+        </label>
+        <label>
+          <input type="checkbox" id="darkMode">
+          Dark Mode
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
